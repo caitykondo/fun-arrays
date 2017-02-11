@@ -5,12 +5,23 @@ var dataset = require('./dataset.json');
   greater than 100000.00
   assign the resulting array to `hundredThousandairs`
 */
+
 var hundredThousandairs = null;
+
+// let arr =[];
+
+dataset.bankBalances.forEach((element, index, array)=>{
+  if(element.amount > 100000.00){
+    array.push(element);
+  }
+  hundredThousandairs = array;
+});
+console.log(hundredThousandairs);
 
 /*
   set a new key for each object in bankBalances named `rounded`
   the value of this key will be the `amount` rounded to the nearest dollar
-  example 
+  example
     {
       "amount": "134758.44",
       "state": "HI",
@@ -20,10 +31,19 @@ var hundredThousandairs = null;
 */
 var roundedDollar = null;
 
+// dataset.bankBalances.forEach((element, index, array)=>{
+//   // function roundToDollar(amount) {
+//   //   // body...
+//   // }
+//   element.rounded = Math.round(element.amount); //amount rounded to nearest dollar
+//   arr.push(element);
+//   roundToDollar = arr;
+// });
+
 /*
   set a the `amount` value for each object in bankBalances
   to the value of `amount` rounded to the nearest 10 cents
-  example 
+  example
     {
       "amount": 134758.4,
       "state": "HI"
@@ -77,14 +97,14 @@ var stateSums = null;
 
 /*
   set lowerSumStates to an array containing
-  only the two letter state abbreviation of each state 
+  only the two letter state abbreviation of each state
   where the sum of amounts in the state is
     less than 1,000,000
  */
 var lowerSumStates = null;
 
 /*
-  set higherStateSums to be the sum of 
+  set higherStateSums to be the sum of
     all amounts of every state
     where the sum of amounts in the state is
       greater than 1,000,000
@@ -107,7 +127,7 @@ var areStatesInHigherStateSum = null;
 
 /*
   Stretch Goal && Final Boss
-  
+
   set anyStatesInHigherStateSum to be true if
     any of these states have a sum of account values
       greater than 2,550,000
